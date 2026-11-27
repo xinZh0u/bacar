@@ -11,6 +11,7 @@ compile_commands.json
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch/
+.vscode/
 .llm_tuner/
 
 # OS / editor
