@@ -1,0 +1,354 @@
+/* ===== PS3 布局虚拟手柄 · 自适应窗口 · 极简白色 ===== */
+
+body {
+  overflow: hidden;
+}
+
+.control-page {
+  --page-gap: clamp(8px, 1.8vmin, 20px);
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: var(--page-gap);
+  display: flex;
+  justify-content: center;
+}
+
+.control-page main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.ctrl-pad {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(14px, 2.6vmin, 30px) clamp(18px, 4vw, 56px);
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: clamp(14px, 2.6vmin, 28px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  gap: clamp(10px, 2vmin, 24px);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.ctrl-shoulders,
+.ctrl-main,
+.ctrl-sticks {
+  width: 100%;
+}
+
+.ctrl-shoulders {
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.ctrl-trigger-group {
+  display: flex;
+  gap: clamp(4px, 1vmin, 10px);
+}
+
+.ctrl-pad button {
+  font-family: inherit;
+  color: #111;
+  background: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ctrl-pad button:hover {
+  color: #111;
+  background: #fafafa;
+  border-color: #cfcfcf;
+}
+
+.ctrl-pad button.active:hover,
+.ctrl-pad button:active:hover {
+  color: #fff;
+  background: #111;
+  border-color: #111;
+}
+
+.ctrl-pad button:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+.ctrl-trigger {
+  min-width: clamp(48px, 13vmin, 143px);
+  padding: clamp(6px, 1.8vmin, 18px) clamp(10px, 2.6vmin, 31px);
+  border-radius: 9px;
+  font-size: clamp(10px, 2.3vmin, 22px);
+  font-weight: 500;
+}
+
+/* ---- 十字键 / 中间键 / 功能键 ---- */
+
+.ctrl-main {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(8px, 2vw, 32px);
+}
+
+.ctrl-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, clamp(38px, 11.7vmin, 104px));
+  grid-template-rows: repeat(3, clamp(38px, 11.7vmin, 104px));
+  gap: clamp(3px, 1vmin, 12px);
+  justify-self: start;
+}
+
+.ctrl-dpad-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: clamp(11px, 2.3vmin, 22px);
+  line-height: 1;
+}
+
+.ctrl-up    { grid-area: 1 / 2; }
+.ctrl-left  { grid-area: 2 / 1; }
+.ctrl-right { grid-area: 2 / 3; }
+.ctrl-down  { grid-area: 3 / 2; }
+
+.ctrl-dpad-center {
+  grid-area: 2 / 2;
+  display: block;
+  border-radius: 8px;
+  background: #f4f4f4;
+}
+
+.ctrl-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.8vmin, 26px);
+}
+
+.ctrl-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.ctrl-sysinfo {
+  color: #555;
+  font-size: clamp(9px, 1.4vmin, 16px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.ctrl-center-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.6vmin, 21px);
+}
+
+.ctrl-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(4px, 1.3vmin, 13px) clamp(8px, 2.1vmin, 21px);
+  color: #666;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: clamp(9px, 1.6vmin, 18px);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.ctrl-home:hover {
+  color: #111;
+  border-color: #111;
+}
+
+.ctrl-home:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+.ctrl-small {
+  padding: clamp(4px, 1.3vmin, 13px) clamp(7px, 1.8vmin, 18px);
+  border-radius: 8px;
+  font-size: clamp(8px, 1.4vmin, 17px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.ctrl-ps {
+  width: clamp(42px, 6vmin, 75px);
+  height: clamp(42px, 6vmin, 75px);
+  padding: 0;
+  border-radius: 50%;
+  font-size: clamp(12px, 1.8vmin, 21px);
+  font-weight: 600;
+}
+
+/* ---- 右侧功能键 ---- */
+
+.ctrl-face {
+  display: grid;
+  grid-template-columns: repeat(3, clamp(44px, 14.3vmin, 120px));
+  grid-template-rows: repeat(3, clamp(44px, 14.3vmin, 120px));
+  gap: clamp(3px, 1.3vmin, 13px);
+  justify-self: end;
+}
+
+.ctrl-face-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(44px, 14.3vmin, 120px);
+  height: clamp(44px, 14.3vmin, 120px);
+  padding: 0;
+  border-radius: 50%;
+  background: #fff;
+  font-size: clamp(14px, 3.9vmin, 42px);
+  line-height: 1;
+}
+
+.ctrl-triangle { grid-area: 1 / 2; }
+.ctrl-square   { grid-area: 2 / 1; }
+.ctrl-circle   { grid-area: 2 / 3; }
+.ctrl-cross    { grid-area: 3 / 2; }
+
+/* ---- 摇杆 ---- */
+
+.ctrl-sticks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.ctrl-stick-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+.ctrl-stick {
+  position: relative;
+  width: clamp(108px, 36.4vmin, 494px);
+  height: clamp(108px, 36.4vmin, 494px);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background: #fafafa;
+  touch-action: none;
+  cursor: grab;
+}
+
+.ctrl-stick:active {
+  cursor: grabbing;
+}
+
+.ctrl-knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(44px, 15.6vmin, 221px);
+  height: clamp(44px, 15.6vmin, 221px);
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+}
+
+.ctrl-stick:active .ctrl-knob {
+  cursor: grabbing;
+}
+
+/* ---- 按下状态 ---- */
+
+.ctrl-pad button.active,
+.ctrl-pad button:active {
+  color: #fff;
+  background: #111;
+  border-color: #111;
+}
+
+/* ---- 窄屏：只调整中间按键排列，不突然改控件尺寸 ---- */
+
+@media (max-width: 560px) {
+  .ctrl-main {
+    gap: 6px;
+  }
+
+  .ctrl-center-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .ctrl-trigger-group {
+    gap: 3px;
+  }
+
+  .ctrl-trigger {
+    min-width: 44px;
+    padding: 5px 7px;
+    font-size: 10px;
+  }
+
+  .ctrl-dpad {
+    grid-template-columns: repeat(3, 40px);
+    grid-template-rows: repeat(3, 40px);
+  }
+
+  .ctrl-face {
+    grid-template-columns: repeat(3, 46px);
+    grid-template-rows: repeat(3, 46px);
+  }
+
+  .ctrl-face-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+  }
+
+  .ctrl-ps {
+    width: 36px;
+    height: 36px;
+    font-size: 11px;
+  }
+
+  .ctrl-small {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+
+  .ctrl-home {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}

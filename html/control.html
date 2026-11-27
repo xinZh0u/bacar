@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>手柄控制 - ESP32-S3</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+<!--CONTROL_CSS-->
+</style>
+</head>
+<body>
+
+<noscript>
+  <p style="padding:16px;border:1px solid #ddd;">当前浏览器未启用 JavaScript，手柄无法使用。</p>
+</noscript>
+
+<div class="container control-page">
+
+  <main>
+
+    <div class="ctrl-pad" aria-label="虚拟手柄">
+
+      <!-- 肩键 -->
+      <div class="ctrl-shoulders">
+        <div class="ctrl-trigger-group">
+          <button type="button" class="ctrl-trigger" data-btn="l2" aria-label="L2">L2</button>
+          <button type="button" class="ctrl-trigger" data-btn="l1" aria-label="L1">L1</button>
+          <button type="button" class="ctrl-trigger" data-btn="l3" aria-label="L3">L3</button>
+        </div>
+        <div class="ctrl-trigger-group">
+          <button type="button" class="ctrl-trigger" data-btn="r3" aria-label="R3">R3</button>
+          <button type="button" class="ctrl-trigger" data-btn="r1" aria-label="R1">R1</button>
+          <button type="button" class="ctrl-trigger" data-btn="r2" aria-label="R2">R2</button>
+        </div>
+      </div>
+
+      <!-- 十字键 / 中间键 / 功能键 -->
+      <div class="ctrl-main">
+
+        <div class="ctrl-dpad" aria-label="方向键">
+          <button type="button" class="ctrl-dpad-btn ctrl-up" data-btn="up" aria-label="上">▲</button>
+          <button type="button" class="ctrl-dpad-btn ctrl-left" data-btn="left" aria-label="左">◀</button>
+          <span class="ctrl-dpad-center" aria-hidden="true"></span>
+          <button type="button" class="ctrl-dpad-btn ctrl-right" data-btn="right" aria-label="右">▶</button>
+          <button type="button" class="ctrl-dpad-btn ctrl-down" data-btn="down" aria-label="下">▼</button>
+        </div>
+
+        <div class="ctrl-center">
+          <div class="ctrl-info">
+            <div class="ctrl-sysinfo" id="ctrl-sysinfo">电量--%  音量--%</div>
+            <div class="ctrl-sysinfo" id="ctrl-playinfo">音频数量:-- 已暂停：第1首  单曲循环</div>
+          </div>
+          <div class="ctrl-center-row">
+            <button type="button" class="ctrl-small" data-btn="select" aria-label="Select">SELECT</button>
+            <button type="button" class="ctrl-ps" data-btn="ps" aria-label="PS">PS</button>
+            <button type="button" class="ctrl-small" data-btn="start" aria-label="Start">START</button>
+          </div>
+          <a class="ctrl-home" href="/">返回主菜单</a>
+        </div>
+
+        <div class="ctrl-face" aria-label="功能键">
+          <button type="button" class="ctrl-face-btn ctrl-triangle" data-btn="triangle" aria-label="三角">△</button>
+          <button type="button" class="ctrl-face-btn ctrl-square" data-btn="square" aria-label="方块">□</button>
+          <button type="button" class="ctrl-face-btn ctrl-circle" data-btn="circle" aria-label="圆圈">○</button>
+          <button type="button" class="ctrl-face-btn ctrl-cross" data-btn="cross" aria-label="叉">✕</button>
+        </div>
+
+      </div>
+
+      <!-- 双摇杆 -->
+      <div class="ctrl-sticks">
+
+        <div class="ctrl-stick-unit">
+          <div class="ctrl-stick" id="stick-left" role="slider" aria-label="左摇杆">
+            <div class="ctrl-knob"></div>
+          </div>
+        </div>
+
+        <div class="ctrl-stick-unit">
+          <div class="ctrl-stick" id="stick-right" role="slider" aria-label="右摇杆">
+            <div class="ctrl-knob"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+<!--CONTROL_JS-->
+</script>
+
+</body>
+</html>
